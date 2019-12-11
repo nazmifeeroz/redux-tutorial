@@ -1,9 +1,18 @@
+import {ADD_ARTICLE} from '@reduxConstants/action-types';
+
 const initialState = {
 	articles: [],
 };
 
 const rootReducer = (state = initialState, action) => {
-	return state;
+	switch (action.type) {
+		case ADD_ARTICLE:
+			return Object.assign({}, state, {
+				articles: state.articles.concat(action.payload),
+			});
+		default:
+			return state;
+	}
 };
 
 export default rootReducer;

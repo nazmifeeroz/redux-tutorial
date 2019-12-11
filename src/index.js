@@ -1,18 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Title from '@components/title'
+import React from 'react';
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import store from '@reduxStore';
+import App from '@components/App';
 
-console.log('process.env.TITLE', process.env.TITLE)
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello, World.</h1>
-        <Title />
-      </div>
-    )
-  }
-}
-
-const mountApp = document.getElementById('app')
-ReactDOM.render(<App />, mountApp)
+render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('app'),
+);
