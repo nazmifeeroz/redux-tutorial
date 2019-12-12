@@ -6,6 +6,7 @@
         "alias": {
           "@components": "./src/components",
           "@reduxConstants": "./src/js/constants",
+          "@reduxActions": "./src/js/actions",
           "@reduxStore": "./src/js/store"
         }
       }
