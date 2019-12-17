@@ -20,16 +20,21 @@ const App = () => {
 }
 
 const select = state => {
-  console.log('state', state)
-  return { articles: state.remoteArticles.slice(0, 10) }
+  return {
+    remoteArticles: state.remoteArticles.slice(0, 10),
+    articles: state.articles,
+  }
 }
 
-const ConnectedList = ({ articles }) => {
+const ConnectedList = ({ articles, remoteArticles, getData }) => {
   useEffect(() => {
     getData()
   }, [])
-  return articles ? (
+  return remoteArticles ? (
     <ul>
+      {remoteArticles.map((el, i) => (
+        <li key={`el-${i}`}>{el.title}</li>
+      ))}
       {articles.map((el, i) => (
         <li key={`el-${i}`}>{el.title}</li>
       ))}

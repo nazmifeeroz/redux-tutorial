@@ -18,7 +18,6 @@ function* workerSaga() {
 }
 
 function getData() {
-  console.log('get data')
   return fetch('https:jsonplaceholder.typicode.com/posts').then(response =>
     response.json()
   )
